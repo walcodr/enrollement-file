@@ -12,7 +12,9 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 
 public class EnrolleesApp {
 		
@@ -118,11 +120,28 @@ public class EnrolleesApp {
 			return list;
 		}
 		
-		// sorts list by last name in ascending order and returns the list
+	/*	// sorts list by last name in ascending order and returns the list
 		public static List<Enrollee> sortAsc(List<Enrollee> list) {
 			list.sort((o1, o2)
 	                  -> o1.getLastName().compareTo(
 	                          o2.getLastName()));
+			return list;
+		}
+	*/
+		
+		// sorts list by last name then first name in ascending order and returns the list
+		public static List<Enrollee> sortAsc(List<Enrollee> list) {
+			  // functions for getting first and last names from an enrollee
+		      Function<Enrollee, String> byFirstName = Enrollee::getFirstName;
+		      Function<Enrollee, String> byLastName = Enrollee::getLastName;
+
+		      // comparator for comparing enrollee by first name then last name
+		      Comparator<Enrollee> lastThenFirst = 
+		      Comparator.comparing(byLastName).thenComparing(byFirstName);
+
+		      // sort enrollees in ascending order by last name, then first name
+		      list.sort(lastThenFirst);
+		      
 			return list;
 		}
 		

@@ -86,13 +86,13 @@ public class EnrolleesApp {
 			    unitedList = sortAsc(unitedList);
 			 	 
 			 	// output to file by each insurance company
-		 		aetnaList = writeToFiles(aetnaFileOutputPath, aetnaList, enrollee);
+		 		writeToFiles(aetnaFileOutputPath, aetnaList, enrollee);
 		 		
-		 		anthemList = writeToFiles(anthemFileOutputPath, anthemList, enrollee);
+		 		writeToFiles(anthemFileOutputPath, anthemList, enrollee);
 		 		
-		 		bcbsList = writeToFiles(bcbsFileOutputPath, bcbsList, enrollee);
+		 		writeToFiles(bcbsFileOutputPath, bcbsList, enrollee);
 		 		
-		 		unitedList = writeToFiles(unitedFileOutputPath, unitedList, enrollee);
+		 		writeToFiles(unitedFileOutputPath, unitedList, enrollee);
 				 
 			 } catch (Exception e) {
 				 
@@ -146,7 +146,7 @@ public class EnrolleesApp {
 		}
 		
 		// writes the list to corresponding output file
-		public static List<Enrollee> writeToFiles(String path, List<Enrollee> list, Enrollee enrollee) throws IOException {
+		public static void writeToFiles(String path, List<Enrollee> list, Enrollee enrollee) throws IOException {
 			FileOutputStream writeData = new FileOutputStream(path);
 	 	    ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
 	 	    String newline = System.getProperty("line.separator"); 
@@ -160,7 +160,6 @@ public class EnrolleesApp {
 	 	    }
 	 	    writeStream.flush();
 	 	    writeStream.close();
-			return list;
 		}
 		
 		

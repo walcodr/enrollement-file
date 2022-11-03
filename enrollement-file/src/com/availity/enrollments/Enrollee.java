@@ -1,33 +1,33 @@
 package com.availity.enrollments;
 
-public class Enrollee {
+public class Enrollee implements java.io.Serializable {
 	
 	
-	private String userID;
-	private String fName;
-	private String lName;
-	private String version;
-	private String insuranceCompany;
+	public String userID;
+	public String fName;
+	public String lName;
+	public String vrsion;
+	public String insuranceCompany;
 
 	// set enrollee attributes
-	public void setUserID(String userID) {
-		userID = this.userID;		
+	public void setUserID(String userid) {
+		userID = userid;		
 	}
 
-	public void setFirstName(String fName) {
-		fName = this.fName;	
+	public void setFirstName(String fname) {
+		fName = fname;	
 	}
 
-	public void setLastName(String lName) {
-		lName = this.lName;
+	public void setLastName(String lname) {
+		lName = lname;
 	}
 
-	public void setVersion(String string) {
-		string = this.version;
+	public void setVersion(String version) {
+		vrsion = version;
 	}
 
-	public void setInsurancecompany(String insuranceCompany) {
-		insuranceCompany = this.insuranceCompany;
+	public void setInsurancecompany(String insuranceCo) {
+		insuranceCompany = insuranceCo;
 	}
 
 	// get enrollee attributes
@@ -44,7 +44,7 @@ public class Enrollee {
 	}
 
 	public String getVersion() {
-		return version;
+		return vrsion;
 	}
 
 	public String getInsuranceCompany() {
